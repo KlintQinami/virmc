@@ -38,6 +38,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'scrooloose/syntastic'
+Plugin 'vim-python/python-syntax'
+Plugin 'davidhalter/jedi'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -933,4 +935,12 @@ function! RepeatTag(Forward)
 endfunction " RepeatTag()
 
 au BufNewFile,BufRead CMakeLists.txt set filetype=cmake
+let g:python_highlight_all = 1
+syntax match pythonFunction /\v([^[:cntrl:][:space:][:punct:][:digit:]]|_)([^[:cntrl:][:punct:][:space:]]|_)*\ze(\s?\()/
+set backspace=indent,eol,start
+
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
 colorscheme slate
